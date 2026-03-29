@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cookaki — Bell Kitchen Since 1956 | Authentic Greek Home Cooking, Acropolis Athens</title>
+<meta name="description" content="Cookaki, the library of authentic homemade tastes since 1956. Traditional Greek home cooking steps from the Acropolis Museum in Koukaki, Athens. Dine in, take away, or delivery to your Airbnb." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --gold: #B8943E;
+  --gold-light: #D4B062;
+  --gold-pale: #F5EDDA;
+  --cream: #FAF6EE;
+  --warm-white: #FDFBF6;
+  --blue: #6B8EA3;
+  --blue-dark: #4A6E82;
+  --blue-deep: #2C4A5A;
+  --blue-pale: #E8EEF2;
+  --charcoal: #2C2824;
+  --brown: #5C4A3A;
+  --mid: #8A7E72;
+  --light: #D8D2C8;
+  --border: #E6E0D6;
+  --ivory: #F2EDE4;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Cinzel', 'Times New Roman', serif;
+  --font-body: 'Lato', 'Helvetica Neue', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--warm-white);color:var(--charcoal);font-size:15px;line-height:1.7;}
+img{max-width:100%;display:block;}
+
+/* ════════ NAV ════════ */
+nav{position:sticky;top:0;z-index:100;background:rgba(253,251,246,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:68px;transition:box-shadow .3s;}
+nav.scrolled{box-shadow:0 2px 20px rgba(44,40,36,0.08);}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--charcoal);}
+.nav-bell{font-size:20px;color:var(--gold);}
+.nav-name{font-family:var(--font-heading);font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);}
+.nav-sub{font-family:var(--font-body);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);display:block;margin-top:-2px;}
+.nav-links{display:flex;gap:2px;}
+.nav-link{background:none;border:none;font-family:var(--font-body);font-size:13px;font-weight:400;letter-spacing:0.5px;text-transform:uppercase;color:var(--mid);padding:10px 16px;border-radius:6px;cursor:pointer;transition:all .25s;}
+.nav-link:hover{color:var(--charcoal);background:var(--cream);}
+.nav-link.active{color:var(--gold);font-weight:500;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.cart-bubble{display:flex;align-items:center;gap:8px;background:var(--blue-deep);color:#fff;border:none;border-radius:24px;padding:8px 20px;font-family:var(--font-body);font-size:13px;font-weight:500;cursor:pointer;transition:background .2s;letter-spacing:0.3px;}
+.cart-bubble:hover{background:var(--blue-dark);}
+.cart-bubble .bc{background:rgba(255,255,255,0.2);border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
+
+/* ════════ PAGES ════════ */
+.page{display:none;animation:fadeUp .4s ease;}
+.page.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* ════════ HERO ════════ */
+.hero{position:relative;background:var(--blue-deep);color:#fff;padding:6rem 2rem 5rem;text-align:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%, rgba(184,148,62,0.12) 0%, transparent 60%),radial-gradient(ellipse at 70% 80%, rgba(107,142,163,0.15) 0%, transparent 60%);pointer-events:none;}
+.hero::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='rgba(184,148,62,0.06)' stroke-width='0.5'/%3E%3C/svg%3E");pointer-events:none;}
+.hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.hero-bells{font-size:32px;margin-bottom:1rem;opacity:0.9;}
+.hero-est{font-family:var(--font-heading);font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold-light);margin-bottom:1.5rem;display:block;}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.2rem);font-weight:400;line-height:1.2;margin-bottom:1rem;color:#fff;}
+.hero h1 em{font-style:italic;color:var(--gold-light);}
+.hero-sub{font-size:16px;color:rgba(255,255,255,0.7);max-width:480px;margin:0 auto 2.5rem;font-weight:300;line-height:1.8;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:#fff;border:none;border-radius:4px;padding:14px 32px;font-family:var(--font-body);font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .25s;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 4px 16px rgba(184,148,62,0.3);}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.25);border-radius:4px;padding:14px 32px;font-family:var(--font-body);font-size:14px;font-weight:400;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all .25s;}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.5);color:#fff;}
+
+/* ════════ TRUST BAR ════════ */
+.trust-bar{background:var(--cream);border-bottom:1px solid var(--border);padding:2rem;}
+.trust-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;text-align:center;}
+.trust-item{padding:1.2rem 1rem;}
+.trust-icon{font-size:24px;margin-bottom:8px;}
+.trust-label{font-family:var(--font-heading);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin-bottom:4px;}
+.trust-detail{font-size:13px;color:var(--mid);line-height:1.5;}
+
+/* ════════ STORY SECTION ════════ */
+.story{max-width:820px;margin:0 auto;padding:5rem 2rem;text-align:center;}
+.story-label{font-family:var(--font-heading);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block;}
+.story h2{font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;line-height:1.3;margin-bottom:1.5rem;color:var(--charcoal);}
+.story p{font-size:16px;color:var(--mid);line-height:1.9;margin-bottom:1rem;}
+.story-divider{width:60px;height:1px;background:var(--gold);margin:2rem auto;opacity:0.5;}
+
+/* ════════ CATEGORIES (HOME) ════════ */
+.cats{max-width:1000px;margin:0 auto;padding:4rem 2rem;}
+.cats-head{text-align:center;margin-bottom:3rem;}
+.cats-head span{font-family:var(--font-heading);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.8rem;}
+.cats-head h2{font-family:var(--font-display);font-size:2.2rem;font-weight:400;color:var(--charcoal);}
+.cats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.cat-card{position:relative;background:var(--blue-deep);border-radius:8px;padding:2.5rem 2rem;cursor:pointer;overflow:hidden;transition:transform .3s, box-shadow .3s;min-height:160px;display:flex;flex-direction:column;justify-content:flex-end;}
+.cat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(184,148,62,0.08) 0%, transparent 50%);pointer-events:none;}
+.cat-card:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(44,40,36,0.15);}
+.cat-card h3{font-family:var(--font-heading);font-size:14px;letter-spacing:2px;text-transform:uppercase;color:#fff;position:relative;z-index:1;}
+.cat-card p{font-size:13px;color:rgba(255,255,255,0.6);margin-top:6px;position:relative;z-index:1;}
+
+/* ════════ REVIEWS ════════ */
+.reviews{background:var(--ivory);padding:4rem 2rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.reviews-inner{max-width:900px;margin:0 auto;text-align:center;}
+.reviews-head span{font-family:var(--font-heading);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.8rem;}
+.reviews-head h2{font-family:var(--font-display);font-size:2rem;font-weight:400;margin-bottom:2.5rem;}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left;}
+.rev-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.5rem;position:relative;}
+.rev-stars{color:var(--gold);font-size:14px;margin-bottom:10px;letter-spacing:2px;}
+.rev-text{font-size:14px;color:var(--mid);line-height:1.7;font-style:italic;margin-bottom:12px;}
+.rev-author{font-size:12px;font-weight:500;color:var(--charcoal);letter-spacing:0.5px;}
+.rev-source{font-size:11px;color:var(--mid);}
+
+/* ════════ MENU PAGE ════════ */
+.section-wrap{max-width:1060px;margin:0 auto;padding:3.5rem 2rem;}
+.menu-header{text-align:center;margin-bottom:3rem;}
+.menu-header span{font-family:var(--font-heading);font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.8rem;}
+.menu-header h2{font-family:var(--font-display);font-size:2.4rem;font-weight:400;}
+.menu-header p{color:var(--mid);font-size:14px;margin-top:6px;}
+.cat-title{font-family:var(--font-heading);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--blue-deep);padding:10px 0;border-bottom:1px solid var(--border);margin-bottom:1.2rem;margin-top:2.5rem;}
+.cat-title:first-of-type{margin-top:0;}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:1rem;}
+.dish{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem;display:flex;flex-direction:column;gap:6px;transition:box-shadow .2s, border-color .2s;}
+.dish:hover{border-color:var(--light);box-shadow:0 4px 16px rgba(44,40,36,0.06);}
+.dish-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.dish-badges{display:flex;gap:4px;flex-wrap:wrap;}
+.badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;letter-spacing:0.3px;}
+.badge-v{background:#E8EDD8;color:#4A5C2F;}
+.badge-s{background:var(--gold-pale);color:var(--gold);}
+.badge-p{background:var(--blue-pale);color:var(--blue-dark);}
+.dish-name{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--charcoal);}
+.dish-desc{font-size:13px;color:var(--mid);line-height:1.5;flex:1;}
+.dish-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
+.dish-price{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--gold);}
+.add-btn{background:transparent;border:1px solid var(--border);border-radius:4px;padding:6px 16px;font-size:12px;font-weight:500;cursor:pointer;color:var(--charcoal);transition:all .2s;letter-spacing:0.3px;}
+.add-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
+.qty-ctrl{display:flex;align-items:center;gap:8px;}
+.qty-btn{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);background:transparent;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--charcoal);transition:all .2s;}
+.qty-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
+.qty-num{font-size:14px;font-weight:500;min-width:18px;text-align:center;}
+
+/* ════════ RESERVATIONS ════════ */
+.res-layout{display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:start;}
+.res-info h3{font-family:var(--font-display);font-size:1.6rem;margin-bottom:1.2rem;font-weight:400;}
+.res-detail{display:flex;align-items:flex-start;gap:14px;margin-bottom:1.2rem;padding:1.1rem 1.2rem;background:var(--cream);border-radius:8px;border:1px solid var(--border);}
+.res-detail-icon{font-size:20px;line-height:1;margin-top:2px;}
+.res-detail-text h4{font-size:14px;font-weight:500;margin-bottom:3px;color:var(--charcoal);}
+.res-detail-text p{font-size:13px;color:var(--mid);line-height:1.6;}
+.res-form-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:2rem;}
+.res-form-card h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:1.5rem;font-weight:400;color:var(--charcoal);}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:12px;font-weight:500;color:var(--mid);margin-bottom:6px;letter-spacing:0.5px;text-transform:uppercase;}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1px solid var(--border);border-radius:4px;padding:11px 14px;font-size:14px;font-family:var(--font-body);background:var(--warm-white);color:var(--charcoal);transition:border-color .2s;outline:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.submit-btn{width:100%;background:var(--gold);color:#fff;border:none;border-radius:4px;padding:14px;font-family:var(--font-body);font-size:14px;font-weight:500;cursor:pointer;margin-top:8px;transition:background .2s;letter-spacing:1px;text-transform:uppercase;}
+.submit-btn:hover{background:var(--gold-light);}
+.success-card{background:var(--gold-pale);border:1px solid var(--gold-light);border-radius:8px;padding:2rem;text-align:center;display:none;}
+.success-card h3{font-family:var(--font-display);font-size:1.3rem;color:var(--brown);margin-bottom:8px;}
+.success-card p{font-size:14px;color:var(--mid);}
+
+/* ════════ CHECKOUT ════════ */
+.checkout-layout{display:grid;grid-template-columns:1fr 400px;gap:2.5rem;align-items:start;}
+.cart-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.8rem;}
+.cart-card h3{font-family:var(--font-display);font-size:1.3rem;margin-bottom:1.2rem;font-weight:400;}
+.cart-item-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;gap:8px;}
+.cart-item-name{flex:1;}
+.cart-item-qty{color:var(--mid);font-size:13px;}
+.cart-item-price{font-weight:500;min-width:56px;text-align:right;}
+.cart-item-remove{background:none;border:none;color:var(--light);cursor:pointer;font-size:16px;padding:0 4px;transition:color .2s;}
+.cart-item-remove:hover{color:var(--gold);}
+.cart-subtotal{display:flex;justify-content:space-between;font-size:14px;color:var(--mid);padding:12px 0 4px;}
+.cart-total-row{display:flex;justify-content:space-between;font-size:17px;font-weight:500;padding-top:12px;border-top:1px solid var(--border);font-family:var(--font-display);}
+.empty-cart-msg{text-align:center;padding:2.5rem;color:var(--mid);font-size:14px;}
+.otype-tabs{display:flex;gap:8px;margin-bottom:1.2rem;}
+.otype-btn{flex:1;padding:10px;border:1px solid var(--border);border-radius:4px;background:transparent;font-family:var(--font-body);font-size:12px;cursor:pointer;color:var(--mid);transition:all .2s;letter-spacing:0.5px;text-transform:uppercase;}
+.otype-btn.active{background:var(--blue-deep);color:#fff;border-color:var(--blue-deep);}
+
+/* ════════ FOOTER ════════ */
+footer{background:var(--blue-deep);color:rgba(255,255,255,0.7);padding:3.5rem 2rem 2rem;text-align:center;}
+footer .f-brand{font-family:var(--font-heading);font-size:14px;letter-spacing:3px;text-transform:uppercase;color:#fff;margin-bottom:6px;}
+footer .f-tagline{font-family:var(--font-display);font-size:14px;font-style:italic;color:var(--gold-light);margin-bottom:1.5rem;}
+footer .f-info{font-size:13px;line-height:2;margin-bottom:1.5rem;}
+footer .f-copy{font-size:11px;color:rgba(255,255,255,0.4);border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;margin-top:1rem;}
+
+/* ════════ ADMIN (compact) ════════ */
+.admin-login{max-width:380px;margin:4rem auto;background:#fff;border:1px solid var(--border);border-radius:8px;padding:2rem;}
+.admin-login h2{font-family:var(--font-display);font-size:1.5rem;margin-bottom:6px;}
+.admin-login p{font-size:13px;color:var(--mid);margin-bottom:1.5rem;}
+.admin-error{color:#C0522A;font-size:13px;margin-top:8px;display:none;}
+.admin-panel{padding:2rem;max-width:1100px;margin:0 auto;}
+.admin-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem;}
+.admin-header h2{font-family:var(--font-display);font-size:1.8rem;}
+.logout-btn{background:transparent;border:1px solid var(--border);border-radius:4px;padding:7px 16px;font-size:13px;cursor:pointer;color:var(--mid);transition:all .2s;}
+.logout-btn:hover{border-color:var(--charcoal);color:var(--charcoal);}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:2rem;}
+.stat-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;}
+.stat-label{font-size:11px;color:var(--mid);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px;}
+.stat-value{font-family:var(--font-display);font-size:1.8rem;color:var(--charcoal);}
+.admin-tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:1.5rem;}
+.admin-tab{background:none;border:none;font-family:var(--font-body);font-size:14px;padding:10px 18px;cursor:pointer;color:var(--mid);border-bottom:2px solid transparent;transition:all .2s;}
+.admin-tab.active{color:var(--charcoal);font-weight:500;border-bottom-color:var(--gold);}
+.orders-table{width:100%;border-collapse:collapse;font-size:14px;}
+.orders-table th{text-align:left;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--mid);padding:8px 12px;border-bottom:1px solid var(--border);background:var(--cream);}
+.orders-table td{padding:12px;border-bottom:1px solid var(--border);vertical-align:top;}
+.orders-table tr:hover td{background:var(--cream);}
+.status-badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;}
+.status-new{background:#FEF3C7;color:#92400E;}
+.status-confirmed{background:#E8EDD8;color:#4A5C2F;}
+.status-done{background:var(--border);color:var(--mid);}
+.action-btn{background:none;border:1px solid var(--border);border-radius:4px;padding:4px 10px;font-size:12px;cursor:pointer;color:var(--charcoal);transition:all .2s;margin-right:4px;}
+.action-btn:hover{background:var(--gold-pale);border-color:var(--gold);}
+.no-orders{text-align:center;padding:3rem;color:var(--mid);font-size:14px;}
+.table-wrap{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+
+@media(max-width:800px){
+  .res-layout,.checkout-layout{grid-template-columns:1fr;}
+  .stats-row{grid-template-columns:1fr 1fr;}
+  nav{padding:0 1rem;}
+  .nav-links{gap:0;}
+  .nav-link{padding:8px 10px;font-size:11px;}
+  .section-wrap,.cats,.story,.reviews-inner{padding-left:1rem;padding-right:1rem;}
+  .trust-grid{grid-template-columns:1fr 1fr;}
+  .cats-grid{grid-template-columns:1fr;}
+  .rev-grid{grid-template-columns:1fr;}
+  .hero{padding:4rem 1.5rem 3.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav id="mainNav">
+  <a class="nav-brand" href="#" onclick="showPage('home');return false;">
+    <span class="nav-bell">🔔</span>
+    <div>
+      <span class="nav-name">Cookaki</span>
+      <span class="nav-sub">Bell Kitchen · Since 1956</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="showPage('home',this)">Home</button>
+    <button class="nav-link" onclick="showPage('menu',this)">Menu</button>
+    <button class="nav-link" onclick="showPage('reservations',this)">Reserve</button>
+    <button class="nav-link" onclick="showPage('checkout',this)">Order</button>
+    <button class="nav-link" onclick="showPage('admin',this)">Admin</button>
+  </div>
+  <div class="nav-right">
+    <button class="cart-bubble" onclick="showPage('checkout')">
+      🛒 <span class="bc" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════ HOME ═══════ -->
+<div id="homePage" class="page active">
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-bells">🔔🔔</div>
+      <span class="hero-est">Library of Authentic Homemade Tastes · Est. 1956</span>
+      <h1>Where every dish is a <em>page</em> from grandma's recipe book</h1>
+      <p class="hero-sub">Beneath the Acropolis, in a kitchen that has been feeding Athens since 1956, we cook the way Greek families cook at home — with patience, pride, and pure local ingredients.</p>
+      <div class="hero-btns">
+        <button class="btn-gold" onclick="showPage('menu')">Explore Our Menu</button>
+        <button class="btn-ghost" onclick="showPage('reservations')">Reserve a Table</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">⭐</div>
+        <div class="trust-label">4.9 on TripAdvisor</div>
+        <div class="trust-detail">Travelers' Choice Award</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📍</div>
+        <div class="trust-label">2 Min from Acropolis</div>
+        <div class="trust-detail">Petmeza 5, Koukaki</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🕐</div>
+        <div class="trust-label">Open Daily</div>
+        <div class="trust-detail">09:30 – 21:00</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛵</div>
+        <div class="trust-label">Three Ways to Enjoy</div>
+        <div class="trust-detail">Dine in · Take away · Delivery</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Story -->
+  <div class="story">
+    <span class="story-label">Our Story</span>
+    <h2>A kitchen with memory. A table with soul.</h2>
+    <p>In 1956, this corner of Koukaki became a kitchen. Not a restaurant in the modern sense — a place where neighbors came to eat what was cooked that morning. Slow-braised stews. Hand-rolled pies. Moussaka baked in copper trays.</p>
+    <p>Seven decades later, the copper trays are still here. The recipes haven't changed. The ingredients still come from the same markets. What's different is you — traveling from across the world, looking for the real Athens, and finding it two streets from the Acropolis Museum.</p>
+    <div class="story-divider"></div>
+    <p style="font-family:var(--font-display);font-size:18px;color:var(--charcoal);font-style:italic;">Led by the Little NOE team — crafting healthy, authentic flavors that redefine everyday dining.</p>
+  </div>
+
+  <!-- Menu Categories -->
+  <div class="cats">
+    <div class="cats-head">
+      <span>The Menu</span>
+      <h2>Four chapters of Greek tradition</h2>
+    </div>
+    <div class="cats-grid">
+      <div class="cat-card" onclick="showPage('menu')">
+        <h3>The Greek Morning</h3>
+        <p>Pies, pastries & the flavors of sunrise</p>
+      </div>
+      <div class="cat-card" onclick="showPage('menu')" style="background:var(--brown);">
+        <h3>Grandma's Kitchen</h3>
+        <p>Slow-cooked classics & daily specials</p>
+      </div>
+      <div class="cat-card" onclick="showPage('menu')" style="background:var(--blue-dark);">
+        <h3>The Seafood Menu</h3>
+        <p>Ocean treasures from the Aegean</p>
+      </div>
+      <div class="cat-card" onclick="showPage('menu')" style="background:#5A4A3E;">
+        <h3>The Grill House</h3>
+        <p>Charcoal-grilled meats & souvlaki</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reviews -->
+  <div class="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-head">
+        <span>Guest Voices</span>
+        <h2>What travelers say about Cookaki</h2>
+      </div>
+      <div class="rev-grid">
+        <div class="rev-card">
+          <div class="rev-stars">★★★★★</div>
+          <div class="rev-text">"We stumbled on this little gem by chance. It was so good we went back twice. All the food is cooked from fresh — the chef prepared the chicken thigh right after we ordered."</div>
+          <div class="rev-author">Recent Guest</div>
+          <div class="rev-source">TripAdvisor</div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-stars">★★★★★</div>
+          <div class="rev-text">"Absolutely great Greek food, fresh, well presented, good-size portions and all this at a very reasonable price. Give the tourist trap places a miss — you will not be disappointed."</div>
+          <div class="rev-author">Recent Guest</div>
+          <div class="rev-source">TripAdvisor</div>
+        </div>
+        <div class="rev-card">
+          <div class="rev-stars">★★★★★</div>
+          <div class="rev-text">"Family run, food fresh and homemade and delicious. Best moussaka I've ever had! We loved it. Also affordable and great service. Loved the hot table of traditional Greek specialties."</div>
+          <div class="rev-author">Recent Guest</div>
+          <div class="rev-source">Restaurant Guru</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════ MENU ═══════ -->
+<div id="menuPage" class="page">
+  <div class="section-wrap">
+    <div class="menu-header">
+      <span>Library of Authentic Homemade Tastes</span>
+      <h2>Our Menu</h2>
+      <p>Every dish made fresh daily with pure local ingredients — the way it's been done since 1956</p>
+    </div>
+
+    <div class="cat-title">🌅 The Greek Morning</div>
+    <div class="menu-grid" id="grid-morning"></div>
+
+    <div class="cat-title">👵 Grandma's Kitchen — Daily Specials</div>
+    <div class="menu-grid" id="grid-grandma"></div>
+
+    <div class="cat-title">🐟 The Seafood Menu</div>
+    <div class="menu-grid" id="grid-seafood"></div>
+
+    <div class="cat-title">🔥 The Grill House</div>
+    <div class="menu-grid" id="grid-grill"></div>
+
+    <div class="cat-title">🥗 Salads & Sides</div>
+    <div class="menu-grid" id="grid-sides"></div>
+
+    <div class="cat-title">🍯 Something Sweet</div>
+    <div class="menu-grid" id="grid-desserts"></div>
+
+    <div class="cat-title">🍷 Drinks</div>
+    <div class="menu-grid" id="grid-drinks"></div>
+  </div>
+</div>
+
+<!-- ═══════ RESERVATIONS ═══════ -->
+<div id="reservationsPage" class="page">
+  <div class="section-wrap">
+    <div class="menu-header">
+      <span>Your Table Awaits</span>
+      <h2>Reserve a Table</h2>
+      <p>Secure your spot at Cookaki — we'll confirm within the hour</p>
+    </div>
+    <div class="res-layout">
+      <div class="res-info">
+        <h3>Plan your visit to Koukaki</h3>
+        <div class="res-detail">
+          <div class="res-detail-icon">🕐</div>
+          <div class="res-detail-text">
+            <h4>Opening Hours</h4>
+            <p>Monday–Saturday: 09:30–21:00<br/>Friday: 09:30–19:00<br/>Sunday: 09:30–21:00</p>
+          </div>
+        </div>
+        <div class="res-detail">
+          <div class="res-detail-icon">📍</div>
+          <div class="res-detail-text">
+            <h4>Find Us</h4>
+            <p>Petmeza 5, Koukaki, Athens 117 42<br/>2-minute walk from the Acropolis Museum<br/>Nearest metro: Syngrou Fix</p>
+          </div>
+        </div>
+        <div class="res-detail">
+          <div class="res-detail-icon">📞</div>
+          <div class="res-detail-text">
+            <h4>Call Us</h4>
+            <p>Prefer to phone? Reach us at<br/><strong style="color:var(--charcoal);">+30 21 0921 9818</strong></p>
+          </div>
+        </div>
+        <div class="res-detail">
+          <div class="res-detail-icon">🛵</div>
+          <div class="res-detail-text">
+            <h4>Delivery to Your Airbnb</h4>
+            <p>Staying nearby? We deliver restaurant-quality meals to your door via Wolt.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="res-form-card">
+          <h3>Reserve your table</h3>
+          <div id="resForm">
+            <div class="form-row">
+              <div class="form-group"><label>First name</label><input id="rfname" placeholder="Maria" /></div>
+              <div class="form-group"><label>Last name</label><input id="rlname" placeholder="Papadaki" /></div>
+            </div>
+            <div class="form-group"><label>Phone number</label><input id="rphone" type="tel" placeholder="+30 6900 000 000" /></div>
+            <div class="form-group"><label>Email (optional)</label><input id="remail" type="email" placeholder="you@example.com" /></div>
+            <div class="form-row">
+              <div class="form-group"><label>Date</label><input id="rdate" type="date" /></div>
+              <div class="form-group"><label>Time</label>
+                <select id="rtime"><option value="">Select time</option>
+                <option>10:00</option><option>10:30</option><option>11:00</option><option>11:30</option>
+                <option>12:00</option><option>12:30</option><option>13:00</option><option>13:30</option>
+                <option>14:00</option><option>14:30</option><option>15:00</option><option>18:00</option>
+                <option>18:30</option><option>19:00</option><option>19:30</option><option>20:00</option>
+                <option>20:30</option></select>
+              </div>
+            </div>
+            <div class="form-group"><label>Guests</label>
+              <select id="rguests"><option>1 guest</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 guests</option><option>6 guests</option><option>7 guests</option><option>8 guests</option></select>
+            </div>
+            <div class="form-group"><label>Special requests</label><textarea id="rnotes" rows="3" placeholder="Allergies, highchair, birthday, outdoor seating…"></textarea></div>
+            <button class="submit-btn" onclick="submitReservation()">Confirm Reservation</button>
+          </div>
+          <div class="success-card" id="resSuccess">
+            <div style="font-size:32px;margin-bottom:8px;">✅</div>
+            <h3>Reservation received!</h3>
+            <p>We'll call or email you within 1 hour to confirm. Efcharistó!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ CHECKOUT ═══════ -->
+<div id="checkoutPage" class="page">
+  <div class="section-wrap">
+    <div class="menu-header">
+      <span>Your Order</span>
+      <h2>Checkout</h2>
+      <p>Review your selections and place your order</p>
+    </div>
+    <div class="checkout-layout">
+      <div>
+        <div class="cart-card">
+          <h3>Your Cart</h3>
+          <div id="cartItems"><div class="empty-cart-msg">Your cart is empty — <button style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:14px;text-decoration:underline;" onclick="showPage('menu')">browse the menu</button></div></div>
+          <div id="cartTotals" style="display:none;">
+            <div class="cart-subtotal"><span>Subtotal</span><span id="subtotalAmt">€0.00</span></div>
+            <div class="cart-total-row"><span>Total</span><span id="totalAmt">€0.00</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cart-card">
+          <h3>Your details</h3>
+          <div id="orderForm">
+            <div class="otype-tabs">
+              <button class="otype-btn active" onclick="setOrderType('dine-in',this)">Eat with us</button>
+              <button class="otype-btn" onclick="setOrderType('pickup',this)">Grab & Go</button>
+              <button class="otype-btn" onclick="setOrderType('delivery',this)">Delivery</button>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label>First name</label><input id="ofname" placeholder="Maria" /></div>
+              <div class="form-group"><label>Last name</label><input id="olname" placeholder="Papadaki" /></div>
+            </div>
+            <div class="form-group"><label>Phone</label><input id="ophone" type="tel" placeholder="+30 6900 000 000" /></div>
+            <div class="form-group"><label>Email</label><input id="oemail" type="email" placeholder="you@example.com" /></div>
+            <div class="form-group" id="addrGroup" style="display:none;"><label>Delivery address / Airbnb</label><input id="oaddress" placeholder="Street, number, city or Airbnb name" /></div>
+            <div class="form-group"><label>Notes</label><textarea id="onotes" rows="2" placeholder="Allergies, extra cutlery, gate code…"></textarea></div>
+            <button class="submit-btn" onclick="submitOrder()">Place Order</button>
+          </div>
+          <div class="success-card" id="orderSuccess">
+            <div style="font-size:32px;margin-bottom:8px;">🔔</div>
+            <h3>Order received!</h3>
+            <p>We'll confirm your order by phone shortly. Kalí órexi!</p>
+            <button class="btn-gold" style="margin-top:1rem;padding:10px 24px;font-size:13px;" onclick="resetOrder()">Order Again</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ADMIN ═══════ -->
+<div id="adminPage" class="page">
+  <div id="adminLogin" style="padding:2rem 1rem;">
+    <div class="admin-login">
+      <h2>Admin Access</h2>
+      <p>Enter your password to manage orders and reservations</p>
+      <div class="form-group"><label>Password</label><input id="adminPwd" type="password" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkAdmin()" /></div>
+      <button class="submit-btn" onclick="checkAdmin()">Sign In</button>
+      <p class="admin-error" id="adminErr">Incorrect password.</p>
+    </div>
+  </div>
+  <div id="adminPanel" style="display:none;">
+    <div class="admin-panel">
+      <div class="admin-header">
+        <h2>Cookaki — Dashboard</h2>
+        <button class="logout-btn" onclick="logoutAdmin()">Sign out</button>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="stat-label">Orders</div><div class="stat-value" id="statOrders">0</div></div>
+        <div class="stat-card"><div class="stat-label">Reservations</div><div class="stat-value" id="statRes">0</div></div>
+        <div class="stat-card"><div class="stat-label">Revenue</div><div class="stat-value" id="statRev">€0</div></div>
+        <div class="stat-card"><div class="stat-label">Pending</div><div class="stat-value" id="statPending">0</div></div>
+      </div>
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="showAdminTab('orders',this)">Orders</button>
+        <button class="admin-tab" onclick="showAdminTab('reservations',this)">Reservations</button>
+      </div>
+      <div id="adminOrders">
+        <div class="table-wrap"><table class="orders-table"><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Type</th><th>Items</th><th>Total</th><th>Status</th><th>Actions</th></tr></thead><tbody id="ordersBody"></tbody></table></div>
+        <div class="no-orders" id="noOrders">No orders yet</div>
+      </div>
+      <div id="adminReservations" style="display:none;">
+        <div class="table-wrap"><table class="orders-table"><thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Date</th><th>Time</th><th>Guests</th><th>Notes</th><th>Status</th><th>Actions</th></tr></thead><tbody id="resBody"></tbody></table></div>
+        <div class="no-orders" id="noRes">No reservations yet</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="f-brand">Cookaki</div>
+  <div class="f-tagline">Library of Authentic Homemade Tastes · Since 1956</div>
+  <div class="f-info">
+    Petmeza 5, Koukaki, Athens 117 42, Greece<br/>
+    +30 21 0921 9818 · cookaki.restaurant@gmail.com<br/>
+    Instagram: @cookaki_1956 · TikTok: @cookaki_1956
+  </div>
+  <div class="f-copy">© 2026 Cookaki Bell Kitchen. All rights reserved. Crafted by The Little NOE Team.</div>
+</footer>
+
+<script>
+const ADMIN_PASS = 'cookaki2026';
+const WA_NUMBER = '302109219818';
+
+// ── MENU DATA ──
+const menuData = {
+  morning: [
+    {id:1, name:"Spanakopita", desc:"Golden filo pastry filled with spinach, feta & fresh herbs — a Greek morning ritual", price:4.50, tags:["v"]},
+    {id:2, name:"Tyropita", desc:"Flaky hand-folded cheese pie with creamy local feta", price:4.00, tags:["v"]},
+    {id:3, name:"Bougatsa", desc:"Warm custard-filled filo dusted with cinnamon & powdered sugar", price:4.50, tags:["v"]},
+    {id:4, name:"Greek Yogurt & Honey", desc:"Thick strained yogurt drizzled with thyme honey & walnuts", price:5.00, tags:["v"]},
+  ],
+  grandma: [
+    {id:5, name:"Moussaka", desc:"Our legendary layered dish — silky aubergine, slow-cooked spiced mince & golden béchamel. The dish guests return for.", price:8.00, tags:["p"]},
+    {id:6, name:"Pastitsio", desc:"Greek baked pasta with seasoned beef, cinnamon-kissed tomato sauce & creamy béchamel crust", price:7.50, tags:[]},
+    {id:7, name:"Gemista", desc:"Sun-ripened tomatoes & peppers hand-stuffed with herbed rice, slow-roasted until caramelised", price:7.00, tags:["v"]},
+    {id:8, name:"Gigantes Plaki", desc:"Giant white beans baked low and slow in herbed tomato sauce — pure comfort", price:6.50, tags:["v"]},
+    {id:9, name:"Stifado", desc:"Slow-braised beef with pearl onions, red wine, cinnamon & bay leaves", price:9.00, tags:[]},
+    {id:10, name:"Daily Special", desc:"Ask about today's hot table — a different home-cooked creation every day, prepared fresh each morning", price:7.00, tags:["p"]},
+    {id:11, name:"Keftedes", desc:"Hand-rolled beef & herb meatballs, pan-fried golden, served with tzatziki", price:7.00, tags:["s"]},
+    {id:12, name:"Risotto of the Day", desc:"Creamy Italian-Greek fusion, made with seasonal ingredients and local produce", price:8.00, tags:[]},
+  ],
+  seafood: [
+    {id:13, name:"Grilled Calamari", desc:"Tender rings of calamari, chargrilled and dressed with lemon & olive oil", price:9.00, tags:[]},
+    {id:14, name:"Fried Shrimp", desc:"Crispy golden shrimp served with a squeeze of fresh lemon", price:10.00, tags:[]},
+    {id:15, name:"Seafood Plate", desc:"A generous sharing platter of the day's freshest catch from the Aegean", price:14.00, tags:["p"]},
+    {id:16, name:"Fish of the Day", desc:"Whole grilled fresh fish — ask your server what arrived this morning", price:12.00, tags:[]},
+  ],
+  grill: [
+    {id:17, name:"Grilled Chicken Thigh", desc:"Marinated in lime, rosemary & mustard. Cleaned and prepared to order — never mass-produced.", price:8.00, tags:["p"]},
+    {id:18, name:"Souvlaki Plate", desc:"Pork & chicken skewers with warm pita, tzatziki, tomato & onion", price:8.50, tags:[]},
+    {id:19, name:"Bifteki", desc:"Juicy hand-formed Greek burger patty with herbs, feta & oregano", price:8.00, tags:[]},
+    {id:20, name:"Mixed Grill Platter", desc:"A generous selection of grilled meats — chicken, pork & bifteki with sides", price:14.00, tags:["p"]},
+    {id:21, name:"Lamb Chops", desc:"Tender marinated lamb chops, charcoal-grilled to perfection", price:12.00, tags:[]},
+  ],
+  sides: [
+    {id:22, name:"Horiatiki Salad", desc:"The real village salad — ripe tomato, cucumber, red onion, olives & a slab of local feta", price:6.00, tags:["v"]},
+    {id:23, name:"Tzatziki", desc:"Cool, thick yogurt with cucumber, garlic & a drizzle of olive oil", price:4.00, tags:["v"]},
+    {id:24, name:"Dakos", desc:"Cretan barley rusk topped with crushed tomato, feta, olives & oregano", price:5.50, tags:["v"]},
+    {id:25, name:"Lemon Potatoes", desc:"Oven-roasted with garlic, oregano & fresh lemon juice", price:4.50, tags:["v"]},
+    {id:26, name:"Village Bread & Olive Oil", desc:"Freshly baked rustic bread with extra-virgin olive oil", price:2.50, tags:["v"]},
+  ],
+  desserts: [
+    {id:27, name:"Baklava", desc:"Layers of golden filo with pistachios, walnuts & honey syrup", price:5.00, tags:["v"]},
+    {id:28, name:"Loukoumades", desc:"Warm honey-drizzled doughnut puffs with cinnamon & crushed walnuts", price:5.50, tags:["v"]},
+    {id:29, name:"Galaktoboureko", desc:"Silky custard wrapped in crisp filo pastry, soaked in citrus syrup", price:5.50, tags:["v"]},
+  ],
+  drinks: [
+    {id:30, name:"Greek Coffee", desc:"Traditional briki-brewed — choose sketo, metrio, or glyko", price:2.50, tags:[]},
+    {id:31, name:"Fresh Lemonade", desc:"Hand-squeezed with fresh mint & a touch of honey", price:3.50, tags:["v"]},
+    {id:32, name:"Mythos Beer", desc:"Chilled classic Greek lager", price:3.50, tags:[]},
+    {id:33, name:"House Wine", desc:"Local Greek white, red, or rosé by the glass", price:5.00, tags:[]},
+    {id:34, name:"Ouzo", desc:"Traditional anise spirit served with ice & water — the way Athens drinks", price:4.00, tags:[]},
+    {id:35, name:"Tsipouro", desc:"Smooth grape spirit — a Cookaki favourite", price:4.00, tags:[]},
+  ]
+};
+
+let cart={}, orders=[], reservations=[], currentOrderType='dine-in';
+
+function buildBadge(t){
+  if(t==='v') return '<span class="badge badge-v">Vegetarian</span>';
+  if(t==='s') return '<span class="badge badge-s">Signature</span>';
+  if(t==='p') return '<span class="badge badge-p">Bestseller</span>';
+  return '';
+}
+
+function renderMenu(items, gridId){
+  const el=document.getElementById(gridId);
+  if(!el) return;
+  el.innerHTML=items.map(item=>`
+    <div class="dish">
+      <div class="dish-top">
+        <div class="dish-name">${item.name}</div>
+        <div class="dish-badges">${item.tags.map(buildBadge).join('')}</div>
+      </div>
+      <div class="dish-desc">${item.desc}</div>
+      <div class="dish-footer">
+        <span class="dish-price">€${item.price.toFixed(2)}</span>
+        <div id="ctrl-${item.id}"><button class="add-btn" onclick="addItem(${item.id})">+ Add</button></div>
+      </div>
+    </div>`).join('');
+}
+
+function addItem(id){cart[id]=(cart[id]||0)+1;updateCtrl(id);updateBadge();}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCtrl(id);updateBadge();renderCart();}
+function updateCtrl(id){
+  const el=document.getElementById('ctrl-'+id);if(!el)return;
+  if(cart[id]) el.innerHTML=`<div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(${id},-1)">−</button><span class="qty-num">${cart[id]}</span><button class="qty-btn" onclick="changeQty(${id},1)">+</button></div>`;
+  else el.innerHTML=`<button class="add-btn" onclick="addItem(${id})">+ Add</button>`;
+}
+function updateBadge(){document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0);}
+function getItem(id){return Object.values(menuData).flat().find(i=>i.id==id);}
+
+function renderCart(){
+  const keys=Object.keys(cart), ci=document.getElementById('cartItems'), ct=document.getElementById('cartTotals');
+  if(!keys.length){ci.innerHTML='<div class="empty-cart-msg">Your cart is empty — <button style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:14px;text-decoration:underline;" onclick="showPage(\'menu\')">browse the menu</button></div>';ct.style.display='none';return;}
+  let total=0;
+  ci.innerHTML=keys.map(id=>{const it=getItem(id);const sub=it.price*cart[id];total+=sub;
+    return `<div class="cart-item-row"><span class="cart-item-name">${it.name}</span><span class="cart-item-qty">×${cart[id]}</span><span class="cart-item-price">€${sub.toFixed(2)}</span><button class="cart-item-remove" onclick="changeQty(${id},-${cart[id]})" title="Remove">×</button></div>`;
+  }).join('');
+  document.getElementById('subtotalAmt').textContent='€'+total.toFixed(2);
+  document.getElementById('totalAmt').textContent='€'+total.toFixed(2);
+  ct.style.display='block';
+}
+
+function setOrderType(t,btn){
+  currentOrderType=t;
+  document.querySelectorAll('.otype-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('addrGroup').style.display=t==='delivery'?'block':'none';
+}
+
+async function sendWhatsApp(msg){
+  try{const url=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;window.open(url,'_blank');}catch(e){console.warn('WhatsApp notification failed:',e);}
+}
+
+function buildOrderMsg(o){
+  const items=o.items.map(i=>`  • ${i.name} x${i.qty} = €${(i.price*i.qty).toFixed(2)}`).join('\n');
+  return `🔔 NEW ORDER #${o.id} — Cookaki\n\n👤 ${o.fname} ${o.lname}\n📞 ${o.phone}\n🍽️ Type: ${o.type}${o.address?'\n📍 '+o.address:''}\n\n${items}\n\n💰 TOTAL: €${o.total.toFixed(2)}${o.notes?'\n📝 Notes: '+o.notes:''}\n\n⏰ ${o.time}`;
+}
+
+function buildResMsg(r){
+  return `🔔 NEW RESERVATION #${r.id} — Cookaki\n\n👤 ${r.fname} ${r.lname}\n📞 ${r.phone}\n📅 Date: ${r.date}\n⏰ Time: ${r.time}\n👥 Guests: ${r.guests}${r.notes?'\n📝 Notes: '+r.notes:''}`;
+}
+
+async function submitOrder(){
+  const fname=document.getElementById('ofname').value.trim(),phone=document.getElementById('ophone').value.trim();
+  if(!fname||!phone){alert('Please enter your name and phone number.');return;}
+  if(!Object.keys(cart).length){alert('Your cart is empty!');return;}
+  const items=Object.keys(cart).map(id=>{const it=getItem(id);return{name:it.name,qty:cart[id],price:it.price};});
+  const total=items.reduce((a,i)=>a+i.price*i.qty,0);
+  const order={id:orders.length+1,fname,lname:document.getElementById('olname').value,phone,email:document.getElementById('oemail').value,type:currentOrderType,address:document.getElementById('oaddress').value,notes:document.getElementById('onotes').value,items,total,status:'new',time:new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})};
+  orders.push(order);sendWhatsApp(buildOrderMsg(order));cart={};updateBadge();
+  document.querySelectorAll('[id^="ctrl-"]').forEach(el=>{const id=el.id.replace('ctrl-','');el.innerHTML=`<button class="add-btn" onclick="addItem(${id})">+ Add</button>`;});
+  document.getElementById('orderForm').style.display='none';document.getElementById('orderSuccess').style.display='block';
+}
+
+function resetOrder(){document.getElementById('orderForm').style.display='block';document.getElementById('orderSuccess').style.display='none';renderCart();}
+
+async function submitReservation(){
+  const fname=document.getElementById('rfname').value.trim(),phone=document.getElementById('rphone').value.trim(),date=document.getElementById('rdate').value,time=document.getElementById('rtime').value;
+  if(!fname||!phone||!date||!time){alert('Please fill in name, phone, date and time.');return;}
+  const res={id:reservations.length+1,fname,lname:document.getElementById('rlname').value,phone,email:document.getElementById('remail').value,date,time,guests:document.getElementById('rguests').value,notes:document.getElementById('rnotes').value,status:'new'};
+  reservations.push(res);sendWhatsApp(buildResMsg(res));
+  document.getElementById('resForm').style.display='none';document.getElementById('resSuccess').style.display='block';
+}
+
+function checkAdmin(){if(document.getElementById('adminPwd').value===ADMIN_PASS){document.getElementById('adminLogin').style.display='none';document.getElementById('adminPanel').style.display='block';refreshAdmin();}else{document.getElementById('adminErr').style.display='block';}}
+function logoutAdmin(){document.getElementById('adminLogin').style.display='block';document.getElementById('adminPanel').style.display='none';document.getElementById('adminPwd').value='';document.getElementById('adminErr').style.display='none';}
+function showAdminTab(tab,btn){document.getElementById('adminOrders').style.display=tab==='orders'?'block':'none';document.getElementById('adminReservations').style.display=tab==='reservations'?'block':'none';document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+
+function refreshAdmin(){
+  document.getElementById('statOrders').textContent=orders.length;
+  document.getElementById('statRes').textContent=reservations.length;
+  document.getElementById('statRev').textContent='€'+Math.round(orders.reduce((a,o)=>a+o.total,0));
+  document.getElementById('statPending').textContent=orders.filter(o=>o.status==='new').length+reservations.filter(r=>r.status==='new').length;
+  const ob=document.getElementById('ordersBody');
+  if(!orders.length){ob.innerHTML='';document.getElementById('noOrders').style.display='block';}
+  else{document.getElementById('noOrders').style.display='none';ob.innerHTML=orders.map(o=>`<tr><td>#${o.id}</td><td>${o.fname} ${o.lname}</td><td>${o.phone}</td><td>${o.type}</td><td style="font-size:12px;">${o.items.map(i=>`${i.name}×${i.qty}`).join(', ')}</td><td>€${o.total.toFixed(2)}</td><td><span class="status-badge status-${o.status}">${o.status}</span></td><td><button class="action-btn" onclick="updateOrderStatus(${o.id-1},'confirmed')">Confirm</button><button class="action-btn" onclick="updateOrderStatus(${o.id-1},'done')">Done</button></td></tr>`).join('');}
+  const rb=document.getElementById('resBody');
+  if(!reservations.length){rb.innerHTML='';document.getElementById('noRes').style.display='block';}
+  else{document.getElementById('noRes').style.display='none';rb.innerHTML=reservations.map(r=>`<tr><td>#${r.id}</td><td>${r.fname} ${r.lname}</td><td>${r.phone}</td><td>${r.date}</td><td>${r.time}</td><td>${r.guests}</td><td style="font-size:12px;max-width:120px;">${r.notes||'—'}</td><td><span class="status-badge status-${r.status}">${r.status}</span></td><td><button class="action-btn" onclick="updateResStatus(${r.id-1},'confirmed')">Confirm</button><button class="action-btn" onclick="updateResStatus(${r.id-1},'done')">Done</button></td></tr>`).join('');}
+}
+function updateOrderStatus(i,s){orders[i].status=s;refreshAdmin();}
+function updateResStatus(i,s){reservations[i].status=s;refreshAdmin();}
+
+function showPage(name,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(name+'Page').classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  else{const map={home:0,menu:1,reservations:2,checkout:3,admin:4};const links=document.querySelectorAll('.nav-link');if(map[name]!==undefined)links[map[name]].classList.add('active');}
+  if(name==='checkout')renderCart();
+  if(name==='admin'&&document.getElementById('adminPanel').style.display==='block')refreshAdmin();
+  window.scrollTo(0,0);
+}
+
+// ── NAV SCROLL EFFECT ──
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);});
+
+// ── INIT ──
+renderMenu(menuData.morning,'grid-morning');
+renderMenu(menuData.grandma,'grid-grandma');
+renderMenu(menuData.seafood,'grid-seafood');
+renderMenu(menuData.grill,'grid-grill');
+renderMenu(menuData.sides,'grid-sides');
+renderMenu(menuData.desserts,'grid-desserts');
+renderMenu(menuData.drinks,'grid-drinks');
+document.getElementById('rdate').min=new Date().toISOString().split('T')[0];
+</script>
+</body>
+</html>
