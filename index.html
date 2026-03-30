@@ -3,8 +3,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cookaki — Bell Kitchen Since 1956 | Authentic Greek Home Cooking, Acropolis Athens</title>
-<meta name="description" content="Cookaki, the library of authentic homemade tastes since 1956. Traditional Greek home cooking steps from the Acropolis Museum in Koukaki, Athens. Dine in, take away, or delivery to your Airbnb." />
+<title>Cookaki Bell Kitchen Athens | Authentic Greek Food near Acropolis Museum, Koukaki</title>
+<meta name="description" content="Cookaki Bell Kitchen — authentic homemade Greek food since 1956. Steps from the Acropolis Museum in Koukaki, Athens. Moussaka, Giouvetsi, grills & daily specials. Dine-in, take away or delivery. Rated 4.9 on TripAdvisor." />
+<meta name="keywords" content="Greek restaurant Athens, Koukaki restaurant, Acropolis restaurant, authentic Greek food, moussaka Athens, homemade Greek cooking, restaurant near Acropolis Museum, Cookaki, Greek taverna Athens, best restaurant Koukaki" />
+<meta property="og:title" content="Cookaki Bell Kitchen — Authentic Greek Home Cooking in Koukaki, Athens" />
+<meta property="og:description" content="Homemade Greek food since 1956, steps from the Acropolis Museum. Moussaka, daily specials, seafood & grill. Dine-in, take away & Airbnb delivery." />
+<meta property="og:type" content="restaurant" />
+<meta name="robots" content="index, follow" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Cookaki Bell Kitchen",
+  "description": "Authentic homemade Greek home cooking since 1956. Steps from the Acropolis Museum in Koukaki, Athens.",
+  "telephone": "+306982373505",
+  "email": "info@littlenoe.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Petmeza 5",
+    "addressLocality": "Koukaki",
+    "addressRegion": "Athens",
+    "postalCode": "117 42",
+    "addressCountry": "GR"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": 37.9672, "longitude": 23.7271},
+  "openingHours": ["Mo-Sa 09:30-21:00", "Su 09:30-21:00"],
+  "servesCuisine": ["Greek", "Mediterranean"],
+  "priceRange": "€",
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "38", "bestRating": "5"}
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lato:wght@300;400;500;700&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
@@ -117,19 +145,31 @@ nav.scrolled{box-shadow:0 2px 20px rgba(44,40,36,0.08);}
 .menu-header p{color:var(--mid);font-size:14px;margin-top:6px;}
 .cat-title{font-family:var(--font-heading);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--blue-deep);padding:10px 0;border-bottom:1px solid var(--border);margin-bottom:1.2rem;margin-top:2.5rem;}
 .cat-title:first-of-type{margin-top:0;}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:1rem;}
-.dish{background:#fff;border:1px solid var(--border);border-radius:8px;padding:1.2rem;display:flex;flex-direction:column;gap:6px;transition:box-shadow .2s, border-color .2s;}
-.dish:hover{border-color:var(--light);box-shadow:0 4px 16px rgba(44,40,36,0.06);}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:1rem;}
+/* ── Dish Card with Image ── */
+.dish{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s;}
+.dish:hover{box-shadow:0 6px 28px rgba(44,40,36,0.10);transform:translateY(-2px);}
+.dish-img-wrap{position:relative;width:100%;height:195px;overflow:hidden;background:var(--cream);flex-shrink:0;}
+.dish-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.dish:hover .dish-img{transform:scale(1.05);}
+.dish-no-img{display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,var(--cream) 0%,var(--ivory) 100%);}
+.dish-body{padding:1rem;display:flex;flex-direction:column;flex:1;gap:8px;}
 .dish-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
-.dish-badges{display:flex;gap:4px;flex-wrap:wrap;}
+.dish-badges{display:flex;gap:4px;flex-wrap:wrap;flex-shrink:0;}
 .badge{font-size:10px;font-weight:500;padding:2px 8px;border-radius:20px;letter-spacing:0.3px;}
 .badge-v{background:#E8EDD8;color:#4A5C2F;}
 .badge-s{background:var(--gold-pale);color:var(--gold);}
 .badge-p{background:var(--blue-pale);color:var(--blue-dark);}
-.dish-name{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--charcoal);}
-.dish-desc{font-size:13px;color:var(--mid);line-height:1.5;flex:1;}
-.dish-footer{display:flex;justify-content:space-between;align-items:center;margin-top:6px;}
-.dish-price{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--gold);}
+.dish-name{font-family:var(--font-display);font-size:17px;font-weight:600;color:var(--charcoal);line-height:1.3;}
+.dish-details{margin:0;}
+.dish-details summary{font-size:12px;color:var(--gold);cursor:pointer;font-weight:500;letter-spacing:0.3px;list-style:none;display:inline-flex;align-items:center;gap:5px;padding:4px 0;user-select:none;}
+.dish-details summary::after{content:'▼';font-size:9px;transition:transform .2s;}
+.dish-details[open] summary::after{transform:rotate(180deg);}
+.dish-details summary::-webkit-details-marker{display:none;}
+.dish-desc-text{font-size:13px;color:var(--mid);line-height:1.6;margin-top:8px;padding-top:8px;border-top:1px solid var(--border);}
+.dish-footer{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:10px;border-top:1px solid var(--border);}
+.dish-price{font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--gold);}
+.dish-price-unit{font-size:11px;font-weight:400;color:var(--mid);margin-left:1px;}
 .add-btn{background:transparent;border:1px solid var(--border);border-radius:4px;padding:6px 16px;font-size:12px;font-weight:500;cursor:pointer;color:var(--charcoal);transition:all .2s;letter-spacing:0.3px;}
 .add-btn:hover{background:var(--gold);color:#fff;border-color:var(--gold);}
 .qty-ctrl{display:flex;align-items:center;gap:8px;}
@@ -421,7 +461,7 @@ footer .f-copy{font-size:11px;color:rgba(255,255,255,0.4);border-top:1px solid r
           <div class="res-detail-icon">📞</div>
           <div class="res-detail-text">
             <h4>Call Us</h4>
-            <p>Prefer to phone? Reach us at<br/><strong style="color:var(--charcoal);">+30 21 0921 9818</strong></p>
+            <p>Prefer to phone? Reach us at<br/><strong style="color:var(--charcoal);">+30 698 237 3505</strong></p>
           </div>
         </div>
         <div class="res-detail">
@@ -565,66 +605,75 @@ footer .f-copy{font-size:11px;color:rgba(255,255,255,0.4);border-top:1px solid r
   <div class="f-tagline">Library of Authentic Homemade Tastes · Since 1956</div>
   <div class="f-info">
     Petmeza 5, Koukaki, Athens 117 42, Greece<br/>
-    +30 21 0921 9818 · cookaki.restaurant@gmail.com<br/>
+    <a href="tel:+306982373505" style="color:inherit;">+30 698 237 3505</a> · <a href="mailto:info@littlenoe.com" style="color:inherit;">info@littlenoe.com</a><br/>
     Instagram: @cookaki_1956 · TikTok: @cookaki_1956
   </div>
   <div class="f-copy">© 2026 Cookaki Bell Kitchen. All rights reserved. Crafted by The Little NOE Team.</div>
 </footer>
 
 <script>
-const ADMIN_PASS = 'cookaki2026';
+const ADMIN_PASS_HASH = 'ddd3483aa016ffe3ee86e6a86fcb6bb11391f1b8219805c70aa643c7e1f3ceef';
 const WA_NUMBER = '306982373505';
 
-// ── MENU DATA ──
+// ── MENU DATA (APPENDIX A) ──
 const menuData = {
   morning: [
-    {id:1, name:"Spanakopita", desc:"Golden filo pastry filled with spinach, feta & fresh herbs — a Greek morning ritual", price:4.50, tags:["v"]},
-    {id:2, name:"Tyropita", desc:"Flaky hand-folded cheese pie with creamy local feta", price:4.00, tags:["v"]},
-    {id:3, name:"Bougatsa", desc:"Warm custard-filled filo dusted with cinnamon & powdered sugar", price:4.50, tags:["v"]},
-    {id:4, name:"Greek Yogurt & Honey", desc:"Thick strained yogurt drizzled with thyme honey & walnuts", price:5.00, tags:["v"]},
+    {id:1, name:"Sfakian Pie with Xynomyzithra & Honey", desc:"Authentic Sfakian pie stuffed with Cretan xynomyzithra cheese, served with Greek blossom honey. The ultimate balance of tart cheese and sweet honey. Suitable as an appetizer, main course, or light dessert.", price:2.90, tags:["v"], img:"cookaki-sfakiani-pita-xinomizithra-meli-koukaki-acropolis.jpg", icon:"🥧"},
+    {id:2, name:"Sfakian Pie with Spinach", desc:"Fresh spinach with herbs wrapped in thin handmade dough and pan-fried until crispy and golden. A light, nutritious, and filling option for vegetarian and vegan customers. Cretan tradition in Athens.", price:2.90, tags:["v"], img:"cookaki-sfakiani-pita-spanaki-koukaki-athina-acropolis.jpg", icon:"🥬"},
   ],
   grandma: [
-    {id:5, name:"Moussaka", desc:"Our legendary layered dish — silky aubergine, slow-cooked spiced mince & golden béchamel. The dish guests return for.", price:8.00, tags:["p"]},
-    {id:6, name:"Pastitsio", desc:"Greek baked pasta with seasoned beef, cinnamon-kissed tomato sauce & creamy béchamel crust", price:7.50, tags:[]},
-    {id:7, name:"Gemista", desc:"Sun-ripened tomatoes & peppers hand-stuffed with herbed rice, slow-roasted until caramelised", price:7.00, tags:["v"]},
-    {id:8, name:"Gigantes Plaki", desc:"Giant white beans baked low and slow in herbed tomato sauce — pure comfort", price:6.50, tags:["v"]},
-    {id:9, name:"Stifado", desc:"Slow-braised beef with pearl onions, red wine, cinnamon & bay leaves", price:9.00, tags:[]},
-    {id:10, name:"Daily Special", desc:"Ask about today's hot table — a different home-cooked creation every day, prepared fresh each morning", price:7.00, tags:["p"]},
-    {id:11, name:"Keftedes", desc:"Hand-rolled beef & herb meatballs, pan-fried golden, served with tzatziki", price:7.00, tags:["s"]},
-    {id:12, name:"Risotto of the Day", desc:"Creamy Italian-Greek fusion, made with seasonal ingredients and local produce", price:8.00, tags:[]},
+    {id:3,  name:"Moussaka", desc:"The leader of Greek cuisine in its most authentic version. Layers of grilled eggplant, aromatic minced beef with cinnamon, and airy béchamel baked until golden. Baked fresh daily; a favourite for tourists and locals near the Acropolis Museum.", price:9.90, tags:["p","s"], img:"moussaka-traditional-greek-food-cookaki-athens.jpg", icon:"🍆"},
+    {id:4,  name:"Pastitsio", desc:"Greece's answer to lasagna. Thick pasta mixed with aromatic minced beef, topped with creamy béchamel and baked until golden. Every piece hides layers of juicy flavour; comfort food at its best.", price:9.90, tags:["p"], img:"pastitsio-homemade-lasagna-style-cookaki-koukaki.jpg", imgAlt:"Homemade Pastitsio Greek baked pasta with béchamel at Cookaki Koukaki Athens near Acropolis", icon:"🍝"},
+    {id:5,  name:"Spetsofai — Village Sausages & Peppers", desc:"Village sausages with red pepper flakes, fresh colourful peppers, and golden onions, slow-cooked in tomato sauce. An icon of Greek cuisine — deep flavour, intense aroma, and completely satisfying.", price:9.90, tags:[], img:"cookaki-spetsofai-lathero-koukaki-athina-acropolis.jpg", icon:"🌶️"},
+    {id:6,  name:"Gemista — Stuffed Vegetables", desc:"The beloved gemista, one of the most iconic summer dishes of Greek cuisine. Ripe tomatoes stuffed with aromatic rice, fresh mint, parsley, and spices, slow-baked until caramelised. Vegan, nutritious, and completely satisfying.", price:8.90, tags:["v"], img:"gemista-stuffed-tomatoes-rice-cookaki-athens-acropolis.jpg", icon:"🍅"},
+    {id:7,  name:"Pork Lemonato — Slow-Cooked in Lemon Sauce", desc:"Tender pieces of pork, slow-cooked in lemon juice, olive oil, and aromatic spices, with colourful vegetables and village potatoes flavoured with dill. Juicy, lemony, and absolutely filling — a Sunday dish in the heart of Athens.", price:9.90, tags:[], img:"cookaki-xoirino-lemonato-patates-koukaki-athina-acropolis.jpeg", icon:"🍋"},
+    {id:8,  name:"Velouté Zucchini Soup", desc:"A velvety, aromatic soup that wins you over from the first spoonful. Fresh zucchini cooked with onion, garlic, and vegetables, blended until creamy with a light touch of mint. Naturally vegan, low in calories, rich in flavour.", price:7.50, tags:["v"], img:"zucchini-soup-kolokithosoupa-cookaki-koukaki-acropolis.jpg", imgAlt:"Velvety zucchini soup kolokithosoupa vegan light meal Cookaki Koukaki Athens Acropolis", icon:"🥣"},
+    {id:9,  name:"Briam — Roasted Seasonal Vegetables", desc:"Greece's answer to ratatouille. Chunky cuts of eggplant, zucchini, bell peppers, tomatoes and carrots slow-roasted in the oven with generous extra virgin olive oil, garlic and fresh herbs until they caramelise. 100% vegan, naturally gluten-free, packed with nutrients.", price:8.90, tags:["v"], img:"briam-roasted-vegetables-vegan-cookaki-koukaki-athens-acropolis.jpg", imgAlt:"Briam roasted seasonal vegetables vegan Greek ratatouille Cookaki Koukaki Athens Acropolis", icon:"🥕"},
+    {id:10, name:"Giant Beans in the Oven (Gigantes)", desc:"Oven-baked giant beans following a recipe that hasn't changed in years. Large white beans slow-baked with tomato juice, garlic, onion, olive oil, and fresh parsley until tender. Rich in fibre and protein, authentic Greek flavour.", price:8.90, tags:["v"], img:"gigantes-beans-traditional-cookaki-koukaki-acropolis.jpg", icon:"🫘"},
+    {id:11, name:"Spinach Rice with Feta (Spanakoryzo)", desc:"Fresh spinach with rice, green onions, dill, and lemon, served with a generous portion of PDO feta. Vegan-friendly without the feta, packed with nutrients. One of the most beloved dishes of Greek cuisine.", price:8.90, tags:["v"], img:"cookaki-spanakoryzo-feta-koukaki-athina-acropolis.jpg", imgAlt:"Spanakoryzo spinach rice with PDO feta traditional Greek dish Cookaki Koukaki Athens Acropolis", icon:"🌿"},
+    {id:12, name:"Peas in Olive Oil (Arakas Laderos)", desc:"Fresh peas cooked with carrot pieces, potatoes, ripe tomato, and plenty of dill in olive oil. A dish that smells like spring. Excellent for vegans and vegetarians, rich in fibre and vitamins.", price:8.90, tags:["v"], img:"arakas-peas-stew-cookaki-koukaki-athens-acropolis.jpg", imgAlt:"Arakas laderos Greek peas stew olive oil vegetarian vegan Cookaki Koukaki Athens Acropolis", icon:"🫛"},
+    {id:13, name:"Traditional Greek Lentils", desc:"Lentils slow-boiled with carrot, celery, onion, garlic, tomato, and bay leaf, finished with apple cider vinegar and a generous amount of olive oil. Rich in iron and fibre; an ideal vegan dish for any season.", price:8.90, tags:["v"], img:"fakes-paradosiakes-soupa-cookaki-koukaki-athina-acropolis.jpg", icon:"🥣"},
+    {id:14, name:"Chickpeas in Olive Oil (Revithia)", desc:"Beloved chickpeas boiled patiently until perfectly soft, with a generous amount of extra virgin olive oil, onion, and aromatics. A dish of true Greek peasant cuisine that has become a global superfood. Rich in protein, ideal for vegans.", price:8.90, tags:["v"], img:"cookaki-revithia-lathera-koukaki-athina.jpg", imgAlt:"Revithia chickpeas olive oil lathera vegan Greek superfood Cookaki Koukaki Athens", icon:"🫘"},
+    {id:15, name:"Green Beans in Olive Oil (Fasolakia Ladera)", desc:"Classic green beans in olive oil — one of the most beloved summer dishes of Greek cuisine. Slow-cooked with potatoes, ripe tomatoes, onion, and a generous amount of olive oil until perfectly tender. Ideal vegan dish, nutritious and quintessentially Greek.", price:8.90, tags:["v"], img:"fasolakia-ladera-ellinika-koukaki-athina-acropolis-cookaki.jpg", icon:"🫑"},
+    {id:16, name:"Giouvetsi — Slow-Braised Beef & Orzo", desc:"Tender chunks of beef slowly braised in a rich tomato sauce with cinnamon, onion and warming spices, then baked together with orzo pasta that absorbs every drop of that incredible sauce. Deeply aromatic, hearty and satisfying — a true crowd-pleaser.", price:9.90, tags:["p"], img:"beef-stew-orzo-giouvetsi-cookaki-athens-acropolis.jpg", imgAlt:"Giouvetsi slow-braised beef orzo kritharaki Greek pasta Cookaki Athens Acropolis Koukaki", icon:"🥩"},
+    {id:17, name:"Roasted Pork (Ladorigani)", desc:"The epitome of the Greek Sunday table. Pieces of pork slow-baked with village potatoes in oil, oregano, lemon juice, and garlic. Juicy meat and soft potatoes that have absorbed all the juices; a dish that smells like home.", price:9.90, tags:[], img:"xoirino-patates-fourno-ladorigani-koukaki-acropolis-cookaki.jpg", icon:"🥩"},
+    {id:18, name:"Eggplant with Village Sausage", desc:"A standout dish: eggplant grilled until perfectly soft, stuffed with pieces of village sausage, caramelised onions, and fresh herbs. The spicy flavour of the sausage marries harmoniously with the creamy interior of the eggplant.", price:9.90, tags:["s"], img:"eggplant-sausage-loukaniko-cookaki-koukaki-acropolis.jpg", icon:"🍆"},
   ],
   seafood: [
-    {id:13, name:"Grilled Calamari", desc:"Tender rings of calamari, chargrilled and dressed with lemon & olive oil", price:9.00, tags:[]},
-    {id:14, name:"Fried Shrimp", desc:"Crispy golden shrimp served with a squeeze of fresh lemon", price:10.00, tags:[]},
-    {id:15, name:"Seafood Plate", desc:"A generous sharing platter of the day's freshest catch from the Aegean", price:14.00, tags:["p"]},
-    {id:16, name:"Fish of the Day", desc:"Whole grilled fresh fish — ask your server what arrived this morning", price:12.00, tags:[]},
+    {id:19, name:"Fish of the Day — Ask Chef", desc:"Fresh fish sourced daily from the Aegean and Mediterranean. Ask your server what arrived this morning for the freshest possible choice. Grilled to order with olive oil, lemon and fresh herbs.", price:10.90, tags:["p"], img:"", icon:"🐟"},
+    {id:20, name:"Grilled Mackerel — Rich in Omega-3", desc:"Fresh mackerel grilled whole with red onions, potatoes, and zucchini, drizzled with mustard vinaigrette and fresh herbs. Extremely rich in omega-3 fatty acids. A healthy, delicious choice that honours Greek maritime tradition.", price:10.90, tags:[], img:"cookaki-skoumpri-psito-skara-koukaki-athina-acropolis.jpg", imgAlt:"Grilled mackerel skoumpri omega-3 fresh fish Greek seafood Cookaki Koukaki Athens Acropolis", icon:"🐟"},
+    {id:21, name:"Red Mullet (Barbouni) — Pan-Roasted", desc:"The undisputed king of the Greek table. Fresh red mullet (barbouni), sourced daily from the Mediterranean, pan-roasted to perfection — the skin vibrant red and crispy, the flesh delicate, sweet and full of the sea. Served over roasted broccoli and cauliflower. A must-order for seafood lovers in Athens.", price:10.90, tags:[], img:"", icon:"🐠"},
   ],
   grill: [
-    {id:17, name:"Grilled Chicken Thigh", desc:"Marinated in lime, rosemary & mustard. Cleaned and prepared to order — never mass-produced.", price:8.00, tags:["p"]},
-    {id:18, name:"Souvlaki Plate", desc:"Pork & chicken skewers with warm pita, tzatziki, tomato & onion", price:8.50, tags:[]},
-    {id:19, name:"Bifteki", desc:"Juicy hand-formed Greek burger patty with herbs, feta & oregano", price:8.00, tags:[]},
-    {id:20, name:"Mixed Grill Platter", desc:"A generous selection of grilled meats — chicken, pork & bifteki with sides", price:14.00, tags:["p"]},
-    {id:21, name:"Lamb Chops", desc:"Tender marinated lamb chops, charcoal-grilled to perfection", price:12.00, tags:[]},
+    {id:22, name:"Pork Chops from the Grill", desc:"Grilled pork chops — the ultimate meat pleasure. Selected pieces of pork belly cut thin, marinated, and grilled to a crispy crust with a juicy interior. Served with lemon and fresh tomato.", price:9.90, tags:[], img:"cookaki-panseta-xoirina-sxara-koukaki-athina.jpg", imgAlt:"Grilled pork chops panseta charcoal grill Greek taverna Cookaki Koukaki Athens Acropolis", icon:"🥩"},
+    {id:23, name:"Beef Patties (Biftekia)", desc:"Handmade patties from select ground beef, flavoured with onion, garlic, and fresh herbs, grilled to a caramelised crust. Served alongside velvety sweet potato purée. A dynamic blend of traditional and modern Greek flavours.", price:10.90, tags:[], img:"", icon:"🍔"},
+    {id:24, name:"Grilled Chicken Fillet with Rice", desc:"Tender chicken fillet marinated with olive oil, lemon, and spices, grilled with a golden crust. Served on a bed of aromatic rice for a balanced and nutritious meal. Ideal for those seeking healthy food near the Acropolis Museum.", price:9.90, tags:["p"], img:"grilled-chicken-fillet-rice-cookaki-athens-acropolis.jpeg", imgAlt:"Grilled chicken fillet aromatic rice healthy meal Cookaki Athens Acropolis Koukaki", icon:"🍗"},
+    {id:25, name:"Grilled Pork Belly (Pansetakia)", desc:"Select quality pork belly, marinated with olive oil, garlic, oregano, thyme, and lemon juice, grilled to a perfect golden crust. Juicy on the inside, crispy on the outside. Served with fresh lemon slices. The ideal choice for meat lovers near the Acropolis.", price:9.90, tags:[], img:"pork-belly-slices-pansetakia-cookaki-athens.jpg", imgAlt:"Grilled pork belly pansetakia sliced Greek grill Cookaki Athens Koukaki Acropolis", icon:"🥓"},
   ],
   sides: [
-    {id:22, name:"Horiatiki Salad", desc:"The real village salad — ripe tomato, cucumber, red onion, olives & a slab of local feta", price:6.00, tags:["v"]},
-    {id:23, name:"Tzatziki", desc:"Cool, thick yogurt with cucumber, garlic & a drizzle of olive oil", price:4.00, tags:["v"]},
-    {id:24, name:"Dakos", desc:"Cretan barley rusk topped with crushed tomato, feta, olives & oregano", price:5.50, tags:["v"]},
-    {id:25, name:"Lemon Potatoes", desc:"Oven-roasted with garlic, oregano & fresh lemon juice", price:4.50, tags:["v"]},
-    {id:26, name:"Village Bread & Olive Oil", desc:"Freshly baked rustic bread with extra-virgin olive oil", price:2.50, tags:["v"]},
+    {id:26, name:"Cabbage & Carrot Coleslaw", desc:"Vibrant, crunchy salad with white and red cabbage, fresh julienned carrots, and aromatic cilantro, drizzled with a light vinaigrette. The perfect refreshing balance alongside meat and fish. Rich in vitamins and antioxidants.", price:5.50, tags:["v"], img:"cookaki-salata-laxano-karoto-coleslaw-koukaki-athina-acropolis.jpg", imgAlt:"Greek coleslaw cabbage carrot salad fresh daily Cookaki Koukaki Athens Acropolis", icon:"🥗"},
+    {id:27, name:"Greek Potato Salad", desc:"Simple, sophisticated Greek potato salad. Boiled potatoes mixed with spring onions, oregano, and fresh herbs, drizzled with extra virgin olive oil. Crunchy texture, balanced flavour. Vegan and gluten-free.", price:6.50, tags:["v"], img:"greek-potato-salad-fresh-side-cookaki-athens.jpg", icon:"🥔"},
+    {id:28, name:"Greek Salad (Horiatiki)", desc:"The timeless queen of Greek cuisine. Ripe seasonal tomatoes, crunchy cucumber, red onion, green peppers, Kalamata olives, and PDO feta, drizzled with extra virgin olive oil and oregano. The ideal taste of Greece in one dish.", price:7.50, tags:["v"], img:"cookaki-xoriatiki-salata-feta-elies-koukaki-athina.jpg", imgAlt:"Authentic Greek salad horiatiki PDO feta olives tomatoes Cookaki Koukaki Athens", icon:"🥗"},
+    {id:29, name:"Cretan Dakos", desc:"A barley rusk soaked in fresh tomato juice, topped with cherry tomatoes, Cretan anthotyro cheese, olive oil, and oregano. Crunchy, flavourful, and effortlessly elegant. Ideal appetiser or light meal, vegetarian-friendly.", price:7.50, tags:["v"], img:"dakos-salad-cretan-rusk-cookaki-koukaki.jpg", icon:"🫙"},
+    {id:30, name:"Oven-Baked Potatoes", desc:"Village potatoes marinated in lemon juice, olive oil, garlic, and oregano, slow-baked until golden outside and tender inside. The perfect accompaniment to any meat or fish on our menu.", price:5.50, tags:["v"], img:"lemon-roasted-potatoes-side-dish-cookaki-koukaki.jpg", icon:"🥔"},
+    {id:31, name:"Aromatic Rice", desc:"Aromatic rice cooked in broth with a delicate flavour of butter, garlic, and fresh herbs. Every grain is separate and full of aroma. Masterful simplicity. Ideal side dish for fish, meat, and vegetable stews.", price:5.00, tags:["v"], img:"cookaki-ryzi-aromatiko-garnitoura-koukaki-athina-acropolis.jpg", icon:"🍚"},
+    {id:32, name:"Sweet Potato Purée", desc:"Velvety sweet potato purée, rich in vitamins and antioxidants. Prepared with butter and spices that highlight the natural sweetness of the potato. Ideal side dish for fish or meat. Superfoods on your plate in the heart of Koukaki.", price:6.00, tags:["v"], img:"cookaki-poures-glykopatatas-koukaki-athina.jpg", icon:"🍠"},
   ],
   desserts: [
-    {id:27, name:"Baklava", desc:"Layers of golden filo with pistachios, walnuts & honey syrup", price:5.00, tags:["v"]},
-    {id:28, name:"Loukoumades", desc:"Warm honey-drizzled doughnut puffs with cinnamon & crushed walnuts", price:5.50, tags:["v"]},
-    {id:29, name:"Galaktoboureko", desc:"Silky custard wrapped in crisp filo pastry, soaked in citrus syrup", price:5.50, tags:["v"]},
+    {id:33, name:"Tiramisu", desc:"Unquestionable classic execution. Layers of ladyfingers dipped in espresso, airy mascarpone cream, and a generous layer of cocoa. Made fresh daily; the ideal finale that makes you want to return.", price:6.00, tags:["s"], img:"tiramisu-traditional-dessert-cookaki-koukaki.jpg", imgAlt:"Homemade tiramisu mascarpone espresso cocoa dessert Cookaki Koukaki Athens", icon:"🍰"},
+    {id:34, name:"San Sebastián Burnt Cheesecake", desc:"The world's trendiest cheesecake now at COOKAKI. Basque burnt cheesecake with a dramatically burnt surface and ultra-creamy interior. Handmade daily and baked at high temperatures for perfect texture contrast.", price:6.00, tags:["s"], img:"san-sebastian-burnt-cheesecake-cookaki-athens.jpg", imgAlt:"San Sebastian Basque burnt cheesecake homemade dessert Cookaki Athens Koukaki Acropolis", icon:"🍰"},
+    {id:35, name:"Marble Cake", desc:"A slice of home. Classic marble cake with swirls of vanilla and chocolate, moist and comforting. Baked fresh daily by our kitchen team. The ideal sweet ending to a Greek home-cooked meal.", price:6.00, tags:[], img:"marble-cake-dessert-cookaki-koukaki-athens.jpg", imgAlt:"Homemade marble cake chocolate vanilla dessert Cookaki Koukaki Athens restaurant", icon:"🎂"},
   ],
   drinks: [
-    {id:30, name:"Greek Coffee", desc:"Traditional briki-brewed — choose sketo, metrio, or glyko", price:2.50, tags:[]},
-    {id:31, name:"Fresh Lemonade", desc:"Hand-squeezed with fresh mint & a touch of honey", price:3.50, tags:["v"]},
-    {id:32, name:"Mythos Beer", desc:"Chilled classic Greek lager", price:3.50, tags:[]},
-    {id:33, name:"House Wine", desc:"Local Greek white, red, or rosé by the glass", price:5.00, tags:[]},
-    {id:34, name:"Ouzo", desc:"Traditional anise spirit served with ice & water — the way Athens drinks", price:4.00, tags:[]},
-    {id:35, name:"Tsipouro", desc:"Smooth grape spirit — a Cookaki favourite", price:4.00, tags:[]},
+    {id:36, name:"Still Water 1 Lt", desc:"Chilled still water to refresh and complement your meal.", price:2.00, tags:[], img:"bottled-water-refreshments-cookaki-athens.jpg", imgAlt:"Bottled still water refreshments Cookaki Athens restaurant Koukaki", icon:"💧"},
+    {id:37, name:"Coca-Cola 330 ml", desc:"Classic Coca-Cola, ice cold.", price:1.80, tags:[], img:"", icon:"🥤"},
+    {id:38, name:"Coca-Cola Zero 330 ml", desc:"Coca-Cola Zero Sugar, ice cold.", price:1.80, tags:[], img:"", icon:"🥤"},
+    {id:39, name:"Soda 330 ml", desc:"Refreshing sparkling soda.", price:1.80, tags:[], img:"", icon:"🥤"},
+    {id:40, name:"Mythos Beer 500 ml", desc:"Chilled classic Greek lager — the taste of Athens.", price:3.50, tags:[], img:"", icon:"🍺"},
+    {id:41, name:"Kaiser Beer 500 ml", desc:"Smooth Greek lager, served ice cold.", price:3.50, tags:[], img:"", icon:"🍺"},
+    {id:42, name:"Nisos Beer 500 ml", desc:"Craft Greek beer with island character.", price:3.50, tags:[], img:"", icon:"🍺"},
+    {id:43, name:"White Wine (by the glass)", desc:"Local Greek white wine — crisp, fresh, perfect with seafood or vegetable dishes.", price:4.00, tags:[], img:"", icon:"🥂"},
+    {id:44, name:"Rosé Wine (by the glass)", desc:"Local Greek rosé — elegant, light, and ideal for any occasion.", price:4.00, tags:[], img:"", icon:"🥂"},
   ]
 };
 
@@ -640,18 +689,31 @@ function buildBadge(t){
 function renderMenu(items, gridId){
   const el=document.getElementById(gridId);
   if(!el) return;
-  el.innerHTML=items.map(item=>`
-    <div class="dish">
-      <div class="dish-top">
-        <div class="dish-name">${item.name}</div>
-        <div class="dish-badges">${item.tags.map(buildBadge).join('')}</div>
+  el.innerHTML=items.map(item=>{
+    const imgHtml = item.img
+      ? `<div class="dish-img-wrap"><img src="${item.img}" alt="${item.imgAlt||item.name+' — Cookaki Athens Koukaki Acropolis'}" class="dish-img" loading="lazy" width="280" height="195"/></div>`
+      : `<div class="dish-img-wrap dish-no-img"><span>${item.icon||'🍽️'}</span></div>`;
+    return `<article class="dish" itemscope itemtype="https://schema.org/MenuItem">
+      ${imgHtml}
+      <div class="dish-body">
+        <div class="dish-top">
+          <div class="dish-name" itemprop="name">${item.name}</div>
+          <div class="dish-badges">${item.tags.map(buildBadge).join('')}</div>
+        </div>
+        <details class="dish-details">
+          <summary>Read more</summary>
+          <p class="dish-desc-text" itemprop="description">${item.desc}</p>
+        </details>
+        <div class="dish-footer">
+          <span class="dish-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <span itemprop="price" content="${item.price}">${item.price.toFixed(2)}</span>
+            <span class="dish-price-unit" itemprop="priceCurrency" content="EUR"> €</span>
+          </span>
+          <div id="ctrl-${item.id}"><button class="add-btn" onclick="addItem(${item.id})">+ Add</button></div>
+        </div>
       </div>
-      <div class="dish-desc">${item.desc}</div>
-      <div class="dish-footer">
-        <span class="dish-price">€${item.price.toFixed(2)}</span>
-        <div id="ctrl-${item.id}"><button class="add-btn" onclick="addItem(${item.id})">+ Add</button></div>
-      </div>
-    </div>`).join('');
+    </article>`;
+  }).join('');
 }
 
 function addItem(id){cart[id]=(cart[id]||0)+1;updateCtrl(id);updateBadge();}
@@ -718,7 +780,7 @@ async function submitReservation(){
   document.getElementById('resForm').style.display='none';document.getElementById('resSuccess').style.display='block';
 }
 
-function checkAdmin(){if(document.getElementById('adminPwd').value===ADMIN_PASS){document.getElementById('adminLogin').style.display='none';document.getElementById('adminPanel').style.display='block';refreshAdmin();}else{document.getElementById('adminErr').style.display='block';}}
+async function checkAdmin(){const input=document.getElementById('adminPwd').value;const hashBuffer=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(input));const inputHash=[...new Uint8Array(hashBuffer)].map(b=>b.toString(16).padStart(2,'0')).join('');if(inputHash===ADMIN_PASS_HASH){document.getElementById('adminLogin').style.display='none';document.getElementById('adminPanel').style.display='block';refreshAdmin();}else{document.getElementById('adminErr').style.display='block';}}
 function logoutAdmin(){document.getElementById('adminLogin').style.display='block';document.getElementById('adminPanel').style.display='none';document.getElementById('adminPwd').value='';document.getElementById('adminErr').style.display='none';}
 function showAdminTab(tab,btn){document.getElementById('adminOrders').style.display=tab==='orders'?'block':'none';document.getElementById('adminReservations').style.display=tab==='reservations'?'block':'none';document.querySelectorAll('.admin-tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
 
